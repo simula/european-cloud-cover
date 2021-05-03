@@ -1,5 +1,5 @@
 # ECC
-Repository for readingt the dataset European Cloud Cover (ECC). Available at &lt;add link>.
+Repository for reading the dataset European Cloud Cover (ECC). Available at <add link>.
 
 ## Examples 
 * Download_ECC.ipynb - Notebook for downloading the dataset to a default.
