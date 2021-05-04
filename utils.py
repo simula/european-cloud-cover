@@ -1,21 +1,49 @@
-""" Collection of helper function used to read the European Cloud Cover dataset.
-"""
+""" Properties of the ECC dataset. Collection of helper function used to read the European Cloud Cover dataset.
 
-import os, sys
+List of functions:
+1. read_ecc_to_dataframe(path_input, start = '2012-01-01',
+            stop = '2012-01-31', include_start = True, include_stop = True)
+2. merge
+3. read_ecc_to_dataset(path_input, start = '2012-01-01',
+            stop = '2012-01-31', include_start = True, include_stop = True)
+4. get_list_of_files
+
+"""
+import os
 import glob
 
 import numpy as np
 import xarray as xr
 
-def read_dataset_to_dataframe(path_input, start = '2012-01-01',
+LAT = (30,50)
+LON = (-15,25)
+SPATIAL_RESOLUTION = 0.25
+TEMPORAL_RESOLUTION = 'h' # TODO: this need to be a proper dt format
+
+EXTENT = [LAT, LON]
+VARIABLES =  ["t2m", 'sp', 'q', 'r', 'tcc']
+
+LONGNAME = {"t2m":"Temperature", 'q':"Specific Humidity",
+            'sp':"Surface Pressure", 'r': "Relative Humidity",
+            'tcc':"Cloud Fractional Cover"}
+
+UNITS = {"t2m":"K", 'sp':"Pa", 'q':"kg kg^-1", 'r': "1", 'tcc':"1"}
+
+def read_ecc_to_dataframe(path_input, start = '2012-01-01',
             stop = '2012-01-31', include_start = True, include_stop = True):
     """
     Parameteres
     ----------------------
+    path_input : None
+        sets path to input
     start : str
         Start of period. First day included. (default '2012-01-01')
-    stop : str, optional
+    stop : str
         end of period. Last day included. (default '2012-01-31')
+    include_start : bool (True)
+        Bool to decide whether to include the start time in the list of files.
+    include_stop : bool (True)
+        Bool to decide whether to include the stop time in the list of files.
 
     Returns
     -----------
@@ -23,8 +51,8 @@ def read_dataset_to_dataframe(path_input, start = '2012-01-01',
         Data in DataFrame
     """
     df = None
-    dataset = get_xarray_dataset_for_period(path_input=path_input, start = start, stop = stop, include_start = include_start, include_stop = include_stop)
-    df =  dataset.to_dataset()
+    dataset = read_ecc_to_dataset(path_input=path_input, start = start, stop = stop, include_start = include_start, include_stop = include_stop)
+    df =  dataset.to_dataframe()
     return df
 
 def merge(files):
@@ -42,17 +70,23 @@ def merge(files):
     assert len(files) != 0, 'No files to merge'
     return xr.open_mfdataset(files, compat='no_conflicts')
 
-def get_xarray_dataset_for_period(path_input, start = '2012-01-01',
+def read_ecc_to_dataset(path_input, start = '2012-01-01',
         stop = '2012-01-31', include_start = True, include_stop = True):
     """ Reads data from the requested period into a xarray dataset.
     I stop is not provided it defaults to one month of data.
 
     Parameteres
     ----------------------
+    path_input : None
+        sets path to input
     start : str
         Start of period. First day included. (default '2012-01-01')
-    stop : str, optional
+    stop : str
         end of period. Last day included. (default '2012-01-31')
+    include_start : bool (True)
+        Bool to decide whether to include the start time in the list of files.
+    include_stop : bool (True)
+        Bool to decide whether to include the stop time in the list of files.
     Returns
     -----------------------
     data : xr.Dataset
@@ -62,7 +96,7 @@ def get_xarray_dataset_for_period(path_input, start = '2012-01-01',
     files = get_list_of_files(path_input=path_input, start = start, stop = stop,
             include_start = include_start, include_stop = include_stop)
 
-    print("Mergingn {}  ... This may take a while.".format(len(files)))
+    print("Merging {} files  ... This may take a while.".format(len(files)))
     data = merge(files)
     if stop is not None:
         data = data.sel(time = slice(start, stop))
@@ -80,7 +114,7 @@ def get_list_of_files(path_input, start = '2012-01-01', stop = '2012-01-31',
     stop : str
         end of period. Last day included. (default '2012-01-31')
     include_start : bool (True)
-        Bool to decide whether to include the start time in the list of files. 
+        Bool to decide whether to include the start time in the list of files.
     include_stop : bool (True)
         Bool to decide whether to include the stop time in the list of files.
 
