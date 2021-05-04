@@ -1,4 +1,4 @@
-name: ECC_test
+name: ECC
 channels:
   - conda-forge
   - defaults
