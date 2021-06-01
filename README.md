@@ -32,4 +32,5 @@ Extract the data here. The resulting filestructure is as folllow
 
 ```
 
-## Articles
+## Contact
+Please contact hannasv@math.uio.no, michael@simula.no, or hugoh@oslomet.no for any questions regarding the dataset.
