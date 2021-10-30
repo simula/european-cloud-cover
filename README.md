@@ -9,7 +9,7 @@ Repository for reading the dataset European Cloud Cover (ECC). Available at http
 
 ## How to get started/Project Enviornment
 ```bash
-git clone https://github.com/hannasv/ECC.git # clone project
+git clone https://github.com/simula/european-cloud-cover.git # clone project
 conda env create -f environment.yml # create project enviornment 
 conda activate ECC # actovate project enviornment
 jupyter lab # launch jupyter lab
