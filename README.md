@@ -22,7 +22,7 @@ mkdir ECC_DATA
 Extract the data here. The resulting filestructure is as folllow
 ```bash
 ├── projectfolder
-│   ├── ECC
+│   ├── european-cloud-cover
 │   │   └── Read_ECC.ipynb
 │   │   └── utils.py
 │   │   └── README.md
