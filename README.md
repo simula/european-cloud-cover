@@ -5,6 +5,8 @@ Repository for reading the dataset European Cloud Cover (ECC). Available at http
 * Read_ECC.ipynb - Notebook for reading the dataset into a pandas dataframe.
 * utils.py - utilities for reading data.
 * environment.yml - specifications of package necessary to run the notebooks.
+* calc_fractional_cover.py - contains functionality used when regridding data.
+* Regridd_ECC_pixel.ipynb - Notebook with examples on regridding data originating on both netcdft and grb format. 
 
 
 ## How to get started/Project Enviornment
@@ -27,7 +29,14 @@ Extract the data here. The resulting filestructure is as folllow
 │   │   └── utils.py
 │   │   └── README.md
 │   │   └── environment.yml
-│   └── ECC_DATA
+│   │   └── Regridd_ECC_pixel.ipynb
+│   │   └── calc_fractional_cover.py
+│   │   └──regridding_info
+│   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_30.0_35.0.json
+│   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_35.0_40.0.json
+│   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_40.0_45.0.json
+│   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_45.0_50.0.json
+│   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_50.0_55.0.json
 │       └── data
 
 ```
