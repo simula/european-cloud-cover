@@ -37,6 +37,7 @@ Extract the data here. The resulting filestructure is as folllow
 │   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_40.0_45.0.json
 │   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_45.0_50.0.json
 │   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_50.0_55.0.json
+│   └── ECC_DATA
 │       └── data
 
 ```
