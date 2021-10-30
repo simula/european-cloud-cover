@@ -1,5 +1,5 @@
 # ECC
-Repository for reading the dataset European Cloud Cover (ECC). Available at https://datasets.simula.no/ecc-dataset/.
+Repository for reading the dataset European Cloud Cover (ECC). Available at https://datasets.simula.no/ecc-dataset/. The repositoriy also contains necessary code and examples if you wish to regridd you own cloud cover. 
 
 ## Examples 
 * Read_ECC.ipynb - Notebook for reading the dataset into a pandas dataframe.
