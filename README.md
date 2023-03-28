@@ -6,7 +6,8 @@ Repository for reading the dataset European Cloud Cover (ECC). Available at http
 * utils.py - utilities for reading data.
 * environment.yml - specifications of package necessary to run the notebooks.
 * calc_fractional_cover.py - contains functionality used when regridding data.
-* Regridd_ECC_pixel.ipynb - Notebook with examples on regridding data originating on both netcdft and grb format. 
+* Regridd_NC_GRB_to_ECC.ipynb - Notebook with examples on regridding data originating on both netcdft and grb format. 
+* Verifying_regridding.ipynb - Notebook with example verifying that the regridding detected the correct pixels.
 
 
 ## How to get started/Project Enviornment
