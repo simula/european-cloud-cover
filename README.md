@@ -30,9 +30,10 @@ Extract the data here. The resulting filestructure is as folllow
 │   │   └── utils.py
 │   │   └── README.md
 │   │   └── environment.yml
-│   │   └── Regridd_ECC_pixel.ipynb
+│   │   └── Regridd_NC_GRB_to_ECC.ipynb
 │   │   └── calc_fractional_cover.py
-│   │   └──regridding_info
+|   |   └── Verifying_regridding.ipynb
+│   │   └── regridding_info
 │   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_30.0_35.0.json
 │   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_35.0_40.0.json
 │   │       └── ERA5_grid_resample_includes_changes_to_indexes_from_40.0_45.0.json
