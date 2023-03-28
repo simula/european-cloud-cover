@@ -41,13 +41,9 @@ def clean_file(satfil):
         o[o==2.0]=1.0
     else:
         cloudMask = xr.open_dataset(satfil)
-        # = np.flipud(cloudMask.cloudMask.values)
-        o = cloudMask.cloudMask.values
-        #o[o<=2.0]=np.nan
+        o = np.fliplr(cloudMask.cloudMask.values)  
         o[o==1.0]=0
         o[o==2.0]=1.0
-        #print(cloudMask)
-        # = cloudMask['cloudMask'].values.reshape( (3712, 3712) )
     return o
 
 def area_grid_cell(c_lat, d_lat, d_lon):
@@ -98,7 +94,7 @@ def calc_fraction_one_cell(lat = '30.25', lon = '19.25', cmk = None, data = None
 
     if data:
         ## Improvements : This should read the files.
-        ex = data[lat][lon]
+        ex = data[str(lon)][str(lat)]
         fraction = 0
 
         ERA_area = area_grid_cell(float(lat), 0.25/2, 0.25/2)
